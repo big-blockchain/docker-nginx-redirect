@@ -40,8 +40,13 @@ if [ ! -n "$SERVER_ERROR_LOG" ] ; then
     SERVER_ERROR_LOG='/dev/stderr'
 fi
 
+if [ ! -n "$LISTEN_PORT" ] ; then
+    LISTEN_PORT='80'
+fi
+
 sed -i "s|\${SERVER_REDIRECT}|${SERVER_REDIRECT}|" /etc/nginx/conf.d/default.conf
 sed -i "s|\${SERVER_NAME}|${SERVER_NAME}|" /etc/nginx/conf.d/default.conf
+sed -i "s|\${LISTEN_PORT}|${LISTEN_PORT}|" /etc/nginx/conf.d/default.conf
 sed -i "s|\${SERVER_REDIRECT_CODE}|${SERVER_REDIRECT_CODE}|" /etc/nginx/conf.d/default.conf
 sed -i "s|\${SERVER_REDIRECT_POST_CODE}|${SERVER_REDIRECT_POST_CODE}|" /etc/nginx/conf.d/default.conf
 sed -i "s|\${SERVER_REDIRECT_PUT_PATCH_DELETE_CODE}|${SERVER_REDIRECT_PUT_PATCH_DELETE_CODE}|" /etc/nginx/conf.d/default.conf

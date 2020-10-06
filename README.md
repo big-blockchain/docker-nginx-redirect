@@ -2,6 +2,18 @@
 
 A very simple container to redirect HTTP traffic to another server, based on `nginx`
 
+## Deploying
+
+* Deploy on our infra like this: 
+```
+TAG=v1.0.x # choose the next incremental one
+
+docker build -t gcr.io/eoscanada-shared-services/nginx-redirect:$TAG .
+docker push gcr.io/eoscanada-shared-services/nginx-redirect:$TAG
+```
+* Modify the image
+* That's it!
+
 ## Resources
 
 - [Docker Hub](https://hub.docker.com/r/schmunk42/nginx-redirect/)
